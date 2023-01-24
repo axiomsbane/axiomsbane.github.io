@@ -1,22 +1,17 @@
 <header>
-    <nav>
-        <a id="beacon" href="/">
-            <div id="home-text"> HOME </div>
+    <nav class="nav-grid">
+        <a id="home-btn" class="no-link" href="/">
+            <div id="home-text" class="btn"> Home </div>
+        </a>
+        <a id="posts-btn" class="no-link" href="/posts.html">
+          <span class="sum-mobile char">|</span>
+          <div id="posts-text" class="btn"> Posts </div>
+        </a>
+        <a id="about-me-btn" class="no-link" href="/aboutme.html">
+          <span class="sum-mobile char">|</span>
+          <div id="about-me" class="btn"> About Me </div>
         </a>
     </nav>
 
-    <div class="right-sidebar">
-        {{#githubUser}}
-        <a class="ext-link" href="https://github.com/{{githubUser}}">
-            <img src="/images/github-logo.png" alt="Github Profile"/>
-        </a>
-        {{/githubUser}}
-
-        {{#twitterHandle}}
-        <a class="ext-link" href="https://twitter.com/{{twitterHandle}}">
-            <img src="/images/twitter-logo.png" alt="Twitter Profile"/>
-        </a>
-        {{/twitterHandle}}
-    <div id="theme-button">DAY</div>
-    </div>
+    
 </header>

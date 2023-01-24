@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head profile="http://www.w3.org/2005/10/profile">
     <meta charset="UTF-8">
-    <meta name="description" content="My Slick Site">
-    <meta name="author" content="Me">
+    <meta name="description" content="axiomsbane">
+    <meta name="author" content="axiomsbane">
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <title>My Slick Site</title>
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+ 
     <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/landing-page.css">
+    <link rel="stylesheet" href="/css/about-me.css">
+    <link rel="stylesheet" href="/css/experience.css">
+    <link rel="stylesheet" href="/css/education.css">
+    <link rel="stylesheet" href="/css/post-list.css">
+    <link rel="stylesheet" href="/css/post.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head><body>
     <header>
-        <nav>
-            <a id="beacon" href="/">
-                <div id="home-text"> HOME </div>
+        <nav class="nav-grid">
+            <a id="home-btn" class="no-link" href="/">
+                <div id="home-text" class="btn"> Home </div>
+            </a>
+            <a id="posts-btn" class="no-link" href="/posts.html">
+              <span class="sum-mobile char">|</span>
+              <div id="posts-text" class="btn"> Posts </div>
+            </a>
+            <a id="about-me-btn" class="no-link" href="/aboutme.html">
+              <span class="sum-mobile char">|</span>
+              <div id="about-me" class="btn"> About Me </div>
             </a>
         </nav>
     
-        <div class="right-sidebar">
-            <a class="ext-link" href="https://github.com/myslickgithubuser">
-            <img src="/images/github-logo.png" alt="Github Profile"/>
-        </a>
+        
+    </header>    
 
-            <a class="ext-link" href="https://twitter.com/myslickhandle">
-            <img src="/images/twitter-logo.png" alt="Twitter Profile"/>
-        </a>
-    <div id="theme-button">DAY</div>
-        </div>
-    </header>
-<div id="page">
-            <section class="table-of-contents">
-                <h1>All Posts</h1>
-                <div class="metadata">
-                </div>
-                <ul>
-                        <li>
-            <a href="posts/sample-post.html">Sample Post <span class="date">Jan 1, 2019</span> </a>
-        </li>
-</ul>
-        </section>
-</div>
-
-<footer>
+<div class="social-links">
+    <a class="ext-link no-link" href="https://github.com/axiomsbane">
+      <img class="ext-link-img" src="/images/github-icon.svg" alt="Github Profile" />
+    </a>
+  
+    <a class="ext-link no-link" href="https://linkedin.com/in/aditya-shidhaye-a48b771a6">
+      <img class="ext-link-img" src="/images/linkedin-icon.svg" alt="LinkedIn Profile" />
+    </a>
+  </div>
+  <footer>
     Built with Haskell using <a href="https://github.com/ChrisPenner/slick">slick</a> ❤️
-</footer>
-
-<link href='https://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-<script src="/js/main.js"></script>
-</body>
-</html>
+  </footer>
+  
+  </body>
+  
+  </html>

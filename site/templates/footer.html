@@ -1,9 +1,20 @@
-<footer>
+<div class="social-links">
+    {{#githubUser}}
+    <a class="ext-link no-link" href="https://github.com/{{githubUser}}">
+      <img class="ext-link-img" src="/images/github-icon.svg" alt="Github Profile" />
+    </a>
+    {{/githubUser}}
+  
+    {{#linkedInUser}}
+    <a class="ext-link no-link" href="https://linkedin.com/in/{{linkedInUser}}">
+      <img class="ext-link-img" src="/images/linkedin-icon.svg" alt="LinkedIn Profile" />
+    </a>
+    {{/linkedInUser}}
+  </div>
+  <footer>
     Built with Haskell using <a href="https://github.com/ChrisPenner/slick">slick</a> ❤️
-</footer>
-
-<link href='https://fonts.googleapis.com/css?family=Quicksand:300,400' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-<script src="/js/main.js"></script>
-</body>
-</html>
+  </footer>
+  
+  </body>
+  
+  </html>

@@ -25,11 +25,11 @@ import qualified Data.Text                  as T
 
 siteMeta :: SiteMeta
 siteMeta =
-    SiteMeta { siteAuthor = "Me"
-             , baseUrl = "https://example.com"
-             , siteTitle = "My Slick Site"
-             , twitterHandle = Just "myslickhandle"
-             , githubUser = Just "myslickgithubuser"
+    SiteMeta { siteAuthor = "axiomsbane"
+             , baseUrl = "https://axiomsbane.github.io"
+             , siteTitle = "axiomsbane"
+             , linkedInUser = Just "aditya-shidhaye-a48b771a6"
+             , githubUser = Just "axiomsbane"
              }
 
 outputFolder :: FilePath
@@ -47,16 +47,22 @@ data SiteMeta =
     SiteMeta { siteAuthor    :: String
              , baseUrl       :: String -- e.g. https://example.ca
              , siteTitle     :: String
-             , twitterHandle :: Maybe String -- Without @
+             , linkedInUser :: Maybe String -- Without @
              , githubUser    :: Maybe String
              }
     deriving (Generic, Eq, Ord, Show, ToJSON)
 
 -- | Data for the index page
-data IndexInfo =
-  IndexInfo
-    { posts :: [Post]
+newtype PostsInfo = PostsInfo
+    { posts :: [Post] 
     } deriving (Generic, Show, FromJSON, ToJSON)
+
+data Bio = Bio
+    { email :: String
+    , location :: String
+    , content :: String
+    }
+    deriving (Generic, Eq, Show, FromJSON, ToJSON, Binary)
 
 type Tag = String
 
@@ -82,11 +88,10 @@ data AtomData =
            , atomUrl      :: String } deriving (Generic, ToJSON, Eq, Ord, Show)
 
 -- | given a list of posts this will build a table of contents
-buildIndex :: [Post] -> Action ()
-buildIndex posts' = do
+buildIndex :: Action ()
+buildIndex = do
   indexT <- compileTemplate' "site/templates/index.html"
-  let indexInfo = IndexInfo {posts = posts'}
-      indexHTML = T.unpack $ substitute indexT (withSiteMeta $ toJSON indexInfo)
+  let indexHTML = T.unpack $ substitute indexT (withSiteMeta $ toJSON siteMeta)
   writeFile' (outputFolder </> "index.html") indexHTML
 
 -- | Find and build all posts
@@ -153,7 +158,7 @@ buildFeed posts = do
 buildRules :: Action ()
 buildRules = do
   allPosts <- buildPosts
-  buildIndex allPosts
+  buildIndex
   buildFeed allPosts
   copyStaticFiles
 

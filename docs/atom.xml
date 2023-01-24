@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>&lt;site-title-here&gt;</title>
-    <link href="https://&lt;your-domain-here&gt;/atom.xml" rel="self" type="application/rss+xml" />
-  <updated>2020-04-08T20:00:SZ</updated>
+    <title>axiomsbane</title>
+    <link href="https://axiomsbane.github.io/atom.xml" rel="self" type="application/rss+xml" />
+  <updated>2023-01-24T03:13:SZ</updated>
   <author>
-      <name>&lt;author-name-here&gt;</name>
+      <name>axiomsbane</name>
   </author>
-  <id>https://&lt;your-domain-here&gt;/</id>
+  <id>https://axiomsbane.github.io/</id>
 
   <entry>
       <title>Sample Post</title>
-      <link href="https://&lt;your-domain-here&gt;posts/sample-post.html"/>
-      <id>https://&lt;your-domain-here&gt;posts/sample-post.html</id>
+      <link href="https://axiomsbane.github.ioposts/sample-post.html"/>
+      <id>https://axiomsbane.github.ioposts/sample-post.html</id>
       <updated>2019-01-01T00:00:SZ</updated>
       <category term="slick"/>
       <category term="site"/>
