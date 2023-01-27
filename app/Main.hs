@@ -79,6 +79,12 @@ data Post =
          }
     deriving (Generic, Eq, Ord, Show, FromJSON, ToJSON, Binary)
 
+data IndexInfo = 
+    IndexInfo { title :: String
+              , content  :: String 
+              }
+    deriving (Generic, Eq, Ord, Show, FromJSON, ToJSON, Binary)
+
 data AtomData =
   AtomData { title        :: String
            , domain       :: String
@@ -90,9 +96,18 @@ data AtomData =
 -- | given a list of posts this will build a table of contents
 buildIndex :: Action ()
 buildIndex = do
-  indexT <- compileTemplate' "site/templates/index.html"
-  let indexHTML = T.unpack $ substitute indexT (withSiteMeta $ toJSON siteMeta)
-  writeFile' (outputFolder </> "index.html") indexHTML
+  [indexInfoPath] <- getDirectoryFiles "." ["site/index.md"]
+  indexInfoLol <- buildIndexInformation indexInfoPath
+  indexTemplate <- compileTemplate' "site/templates/index.html"
+  let indexHtml = T.unpack $ substitute indexTemplate $ withSiteMeta $ toJSON indexInfoLol
+  writeFile' (outputFolder </> "index.html") indexHtml
+
+buildIndexInformation :: FilePath -> Action IndexInfo
+buildIndexInformation srcPath = cacheAction ("build" :: T.Text, srcPath) $ do 
+  liftIO . putStrLn $ "Building Index page: " <> srcPath
+  indexBody <- readFile' srcPath
+  indexBodyHtml <- markdownToHTML . T.pack $ indexBody 
+  convert indexBodyHtml
 
 -- | Find and build all posts
 buildPosts :: Action [Post]

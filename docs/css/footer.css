@@ -1,12 +1,12 @@
 footer {
-    position: absolute;
+    position: relative;
     text-align: center;
     bottom : 0;
     padding-bottom: .5rem;
   }
   
   .social-links {
-    position: absolute;
+    position: relative;
     text-align: center;
     bottom : 0;
     padding-left: 1rem;

@@ -5,9 +5,9 @@
   } */
   
   nav a, nav a:visited {
-    padding: 10rem;
-    margin: 10rem; 
-    position: absolute; 
+    padding: rem;
+    margin: rem; 
+    position:relative; 
     align-items: center; 
     color: #111111;
     margin-left: 12px;
@@ -17,7 +17,7 @@
     margin: 1.5rem;
     font-size: 2rem;
     text-align: center;
-    display: block;
+    display: flex;
   }
   
   @media screen and (max-width: 380px) {
