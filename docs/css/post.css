@@ -1,0 +1,18 @@
+.post-tags {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .post-tag {
+    background-color: gainsboro;
+    color: #1D263B;
+    border-radius: .5rem;
+    padding: .2rem;
+    margin-right: 0.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+  

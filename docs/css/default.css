@@ -1,12 +1,3 @@
-/* @font-face {
-    font-family: Garamond;
-    src: url("../fonts/EBGaramond-Regular.ttf") format(truetype);
-}
-
-html {
-    font-family: Garamond;
-} */
-
 body {
     font: 400 16px/1.5 'EB Garamond', serif;
     color: #111111;

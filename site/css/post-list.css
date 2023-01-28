@@ -1,0 +1,38 @@
+
+  .post-item:hover {
+    background-color: #DBD4C7;
+    transition: all .2s ease-in;
+  }
+  
+  .post-item:hover .post-title {
+    font-weight: 700;
+  }
+  
+  .tag {
+    background-color: gainsboro;
+    color: #1D263B;
+    border-radius: .5rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .tag:last-of-type {
+    margin-right: 0rem;
+  }
+  
+  /* Tags */
+  
+  #productivity {
+    background-color: #9c7a84;
+    color: #fef5e6;
+  }
+  
+  #book-review {
+    background-color: #92a34c;
+    color: #fef5e6;
+  }
+  
+  #lambda-calculus {
+    background-color: #FFD9DA;
+    color: #1F211C;
+  }
