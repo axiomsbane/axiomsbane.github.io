@@ -20,6 +20,7 @@ import           Slick
 
 import qualified Data.HashMap.Lazy as HML
 import qualified Data.Text                  as T
+import Data.List (sortBy)
 
 ---Config-----------------------------------------------------------------------
 
@@ -168,6 +169,14 @@ buildFeed posts = do
       mkAtomPost :: Post -> Post
       mkAtomPost p = p { date = formatDate $ date p }
 
+
+buildTableOfContents :: [Post] -> Action ()
+buildTableOfContents posts' = do
+  postsT <- compileTemplate' "site/templates/posts.html"
+  let postsInfo = PostsInfo{posts = sortBy (\x y -> compare (date y) (date x)) posts'}
+      postsHTML = T.unpack $ substitute postsT (withSiteMeta $ toJSON postsInfo)
+  writeFile' (outputFolder </> "posts.html") postsHTML
+
 -- | Specific build rules for the Shake system
 --   defines workflow to build the website
 buildRules :: Action ()
@@ -175,6 +184,7 @@ buildRules = do
   allPosts <- buildPosts
   buildIndex
   buildFeed allPosts
+  buildTableOfContents allPosts
   copyStaticFiles
 
 main :: IO ()
