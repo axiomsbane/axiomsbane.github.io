@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>axiomsbane</title>
     <link href="https://axiomsbane.github.io/atom.xml" rel="self" type="application/rss+xml" />
-  <updated>2023-01-28T10:31:SZ</updated>
+  <updated>2023-01-28T10:39:SZ</updated>
   <author>
       <name>axiomsbane</name>
   </author>
@@ -15,7 +15,7 @@
       <updated>2023-01-28T00:00:SZ</updated>
       <category term="miscellaneous"/>
       <summary>First post</summary>
-      <content type="html"><![CDATA[<p>This is my first attempt at creating a personal blog. I've used <a href="https://github.com/ChrisPenner/slick">slick</a> and since I quite suck at CSS/HTML I took the reference of [<a href="https://bendo.github.io/" class="uri">https://bendo.github.io/</a>] for the minimalist styling and [<a href="https://jonathanlorimer.dev" class="uri">https://jonathanlorimer.dev</a>] to understand how to work with <a href="https://github.com/ChrisPenner/slick">slick</a>.</p>
+      <content type="html"><![CDATA[<p>This is my first attempt at creating a personal blog. I've used <a href="https://github.com/ChrisPenner/slick">slick</a> and since I quite suck at CSS/HTML I took the reference of <a href="https://bendo.github.io/">https://bendo.github.io/</a> for the minimalist styling and <a href="https://jonathanlorimer.dev">https://jonathanlorimer.dev</a> to understand how to work with <a href="https://github.com/ChrisPenner/slick">slick</a>.</p>
 <p>In the future, I'll maybe try and integrate a page for note-taking or a tree-like structure for blogging using <a href="https://srid.ca/emanote">emanote</a>.</p>]]></content>
   </entry>
 </feed>
