@@ -10,4 +10,4 @@ I was born in India, grew up in Muscat (Oman) and currently living in Nasik (Ind
 I got my degree in Electronics and Communications Engineering at IIIT - Delhi.
 
 I recently developed an interest in purely functional programming.
-At work I use with Java and in my free time I explore Haskell.
+At work I use Java and in my free time I explore Haskell.
