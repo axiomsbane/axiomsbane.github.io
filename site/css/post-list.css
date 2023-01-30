@@ -1,10 +1,4 @@
-
-  .post-item:hover {
-    background-color: #DBD4C7;
-    transition: all .2s ease-in;
-  }
-  
-  .post-item:hover .post-title {
+  .post-title {
     font-weight: 700;
   }
   

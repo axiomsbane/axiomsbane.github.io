@@ -1,17 +1,16 @@
 <ul>
     {{#posts}}
-        <li class="post-item">
+        <li class="post-item">  
+          <div class="detail-container">
             <a href="{{url}}" class="no-link post-link">
-              <div class="detail-container">
-                <span class="post-title">{{title}}</span>
-                <br>
-                {{#tags}}
-                <span class="post-tag" id="{{.}}">{{.}}</span>
-                {{/tags}}
-              </div>
-
-              <span class="list-date">{{date}}</span>
+              <span class="post-title">{{title}}</span>
             </a>
+            <br>
+            {{#tags}}
+            <span class="post-tag" id="{{.}}">{{.}}</span>
+            {{/tags}}
+          </div>
+          <span class="list-date">{{date}}</span>
         </li>
     {{/posts}}
 </ul>
