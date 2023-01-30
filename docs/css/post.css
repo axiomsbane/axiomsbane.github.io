@@ -1,6 +1,6 @@
   .post-tags {
     margin-top: 2rem;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
   }
   
@@ -8,7 +8,7 @@
     background-color: gainsboro;
     color: #1D263B;
     border-radius: .5rem;
-    padding: .2rem;
+    padding: .025rem;
     margin-right: 0.5rem;
   }
 
