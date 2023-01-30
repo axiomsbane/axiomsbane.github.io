@@ -2,37 +2,25 @@
 <body>
     {{>site/templates/header.html}}
 
-<div id="page">
-    <div class="wrapper">
-        <div class="masthead">
-            <span class="title">
-                {{title}}
-            </span>
-            <br>
-
-            {{#image}}
-            <img class="post-image" src="/images/{{image}}">
-            {{/image}}
-            <br>
-            {{#author}}
-            <span class="byline">by {{author}}</span>
-            {{/author}}
-            <br>
-            <span class="date">{{date}}</span>
-            <br>
-            <div class="metadata">
-            </div>
-            <div class="tags">
-              {{#tags}}
-              <span class="tag {{.}}">{{.}}</span>
-              {{/tags}}
-            </div>
+    <div id="index" class="post">
+        <h1 class="title"> {{title}} </h1>
+    
+        {{#author}}
+        <h2 class="byline">by {{author}}</h2>
+        {{/author}}
+    
+        <div class="date">{{datePretty}}</div>
+        <div class="post-tags">
+          <span>Tags: </span>
+          {{#tags}}
+          <span class="post-tag" id="{{.}}">{{.}}</span>
+          {{/tags}}
         </div>
+    
+        <article class="post-content">
+            {{{content}}}
+        </article>
+    
     </div>
-    <article class="post">
-        {{{content}}}        
-    </article>
-
-</div>
 
 {{>site/templates/footer.html}}

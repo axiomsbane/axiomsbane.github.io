@@ -3,6 +3,7 @@ title: "First post"
 author: Aditya Shidhaye
 date: Jan 28, 2023
 description: "First post"
+datePretty: Jan 28, 2023
 tags: [miscellaneous]
 ---
 
