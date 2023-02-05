@@ -7,7 +7,9 @@
             </a>
             <br>
             {{#tags}}
-            <span class="post-tag" id="{{.}}">{{.}}</span>
+            <a href="../tags/{{.}}" class="no-link post-link">
+              <span class="post-tag" id="{{.}}">{{.}}</span>
+            </a>
             {{/tags}}
           </div>
           <span class="list-date">{{date}}</span>

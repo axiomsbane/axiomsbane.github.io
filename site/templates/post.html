@@ -13,7 +13,9 @@
         <div class="post-tags">
           <span>Tags: </span>
           {{#tags}}
-          <span class="post-tag" id="{{.}}">{{.}}</span>
+          <a href="../tags/{{.}}" class="no-link post-link">
+            <span class="post-tag" id="{{.}}">{{.}}</span>
+          </a>
           {{/tags}}
         </div>
     
