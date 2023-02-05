@@ -37,6 +37,9 @@ siteMeta =
 outputFolder :: FilePath
 outputFolder = "docs/"
 
+tagsFolder :: FilePath
+tagsFolder = "tags/"
+
 --Data models-------------------------------------------------------------------
 
 withSiteMeta :: Value -> Value
@@ -57,6 +60,11 @@ data SiteMeta =
 -- | Data for the index page
 newtype PostsInfo = PostsInfo
     { posts :: [Post] 
+    } deriving (Generic, Show, FromJSON, ToJSON)
+
+data TaggedBasedPostsInfo = TaggedBasedPostsInfo
+    { posts :: [Post]
+    , mainTag :: Tag
     } deriving (Generic, Show, FromJSON, ToJSON)
 
 data Bio = Bio
@@ -184,11 +192,19 @@ tagPostListBuilder = concatMap (\p -> map (, p) (tags p))
 tagPostMapBuilder :: [(Tag, Post)] -> DM.Map Tag [Post]
 tagPostMapBuilder = foldr (\curPair curMap -> DM.adjust (snd curPair:) (fst curPair) curMap) DM.empty 
 
--- buildTagGrouping :: [Post] -> Action ()
--- buildTagGrouping posts' = do 
---   let tagPostList = DM.toList $ tagPostMapBuilder $ tagPostListBuilder posts'
-  
+buildTagGrouping :: [Post] -> Action [()]
+buildTagGrouping posts' = do 
+  let tagPostList = DM.toList $ tagPostMapBuilder $ tagPostListBuilder posts'
+      taggedBasedPosts = map (\(tg, pstList) -> TaggedBasedPostsInfo{mainTag = tg, posts=pstList}) tagPostList
+  forP taggedBasedPosts buildTagBasedPage
 
+buildTagBasedPage :: TaggedBasedPostsInfo -> Action ()
+buildTagBasedPage tagguInfo = do 
+  tagBasedPostsT <- compileTemplate' "site/templates/tagBasedPostList.html"
+  -- let sortedTagBasedPosts = tagguInfo{posts = sortBy (\x y -> compare (date y) (date x)) (posts tagguInfo)} 
+  --     tagBasedHTML = T.unpack $ substitute tagBasedPostsT (withSiteMeta $ toJSON sortedTagBasedPosts)
+  let tagBasedHTML = T.unpack $ substitute tagBasedPostsT (withSiteMeta $ toJSON tagguInfo)
+  writeFile' (outputFolder </> tagsFolder </> (mainTag tagguInfo ++ ".html")) tagBasedHTML
 
 
 -- | Specific build rules for the Shake system
@@ -199,6 +215,7 @@ buildRules = do
   buildIndex
   buildFeed allPosts
   buildTableOfContents allPosts
+  buildTagGrouping allPosts
   copyStaticFiles
 
 main :: IO ()
