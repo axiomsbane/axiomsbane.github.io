@@ -189,8 +189,14 @@ buildTableOfContents posts' = do
 tagPostListBuilder :: [Post] -> [(Tag, Post)]
 tagPostListBuilder = concatMap (\p -> map (, p) (tags p))
 
+folderHelper :: (Tag, Post) -> DM.Map Tag [Post] -> DM.Map Tag [Post]
+folderHelper pairu mp = 
+  if DM.member (fst pairu) mp 
+  then DM.adjust (snd pairu:) (fst pairu) mp 
+  else DM.insert (fst pairu) [snd pairu] mp
+
 tagPostMapBuilder :: [(Tag, Post)] -> DM.Map Tag [Post]
-tagPostMapBuilder = foldr (\curPair curMap -> DM.adjust (snd curPair:) (fst curPair) curMap) DM.empty 
+tagPostMapBuilder = foldr folderHelper DM.empty
 
 buildTagGrouping :: [Post] -> Action [()]
 buildTagGrouping posts' = do 
@@ -201,8 +207,6 @@ buildTagGrouping posts' = do
 buildTagBasedPage :: TaggedBasedPostsInfo -> Action ()
 buildTagBasedPage tagguInfo = do 
   tagBasedPostsT <- compileTemplate' "site/templates/tagBasedPostList.html"
-  -- let sortedTagBasedPosts = tagguInfo{posts = sortBy (\x y -> compare (date y) (date x)) (posts tagguInfo)} 
-  --     tagBasedHTML = T.unpack $ substitute tagBasedPostsT (withSiteMeta $ toJSON sortedTagBasedPosts)
   let tagBasedHTML = T.unpack $ substitute tagBasedPostsT (withSiteMeta $ toJSON tagguInfo)
   writeFile' (outputFolder </> tagsFolder </> (mainTag tagguInfo ++ ".html")) tagBasedHTML
 

@@ -3,14 +3,14 @@
     {{>site/templates/header.html}}
     <div id="index" class="post-list">
         <section class="posts">
-           <h1 class="title">Posts tagged with {{mainTag}}</h1>
+           <h1 class="title">Posts tagged with "{{mainTag}}"</h1>
            <div class="metadata">
            </div>
            <ul>
             {{#posts}}
                 <li class="post-item">  
                   <div class="detail-container">
-                    <a href="{{url}}" class="no-link post-link">
+                    <a href="../{{url}}" class="no-link post-link">
                       <span class="post-title">{{title}}</span>
                     </a>
                     <br>
